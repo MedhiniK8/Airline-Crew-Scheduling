@@ -17,13 +17,13 @@
 
 ---
 
-## 📂 1. Project Overview & Details
+## 1. Project Overview & Details
 
 ### **The Problem**
 Airlines operate on tight margins where efficiency is everything. Manual crew scheduling leads to:
-* ❌ **Operational Conflicts:** Crew double-booked on overlapping flights.
-* ❌ **Safety Risks:** Violations of mandatory rest periods (pilot fatigue).
-* ❌ **Financial Loss:** Excessive "paid idle time" where crew wait at airports.
+ **Operational Conflicts:** Crew double-booked on overlapping flights.
+ **Safety Risks:** Violations of mandatory rest periods (pilot fatigue).
+ **Financial Loss:** Excessive "paid idle time" where crew wait at airports.
 
 ### **The Solution**
 We developed a C++ application that automates the rostering process. By treating time as a linear resource and crew as distinct entities, our system generates a conflict-free schedule in seconds.
@@ -35,7 +35,7 @@ We developed a C++ application that automates the rostering process. By treating
 
 ---
 
-## 📊 2. Analysis of Algorithms
+## 2. Analysis of Algorithms
 
 We utilized a "Sort-Search-Assign" pipeline to solve the problem efficiently.
 
@@ -50,7 +50,7 @@ We utilized a "Sort-Search-Assign" pipeline to solve the problem efficiently.
 
 ---
 
-## 🧠 3. Individual Reflections
+## 3. Individual Reflections
 
 ### **Student Details**
 * **Name:** [Your Name Here]
@@ -64,7 +64,7 @@ Building this project shifted my perspective from just "writing code" to "engine
 
 ---
 
-## 🌍 4. Sustainable Development Goals (SDG)
+## 4. Sustainable Development Goals (SDG)
 
 This project aligns with the United Nations SDGs to promote a better future.
 
