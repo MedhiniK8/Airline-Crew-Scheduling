@@ -3,10 +3,11 @@
   <h3>Optimizing Aviation Logistics using Advanced Algorithms</h3>
 
   <p>
-    <a href="#-1-project-overview--details"><b>📋 Overview</b></a> &nbsp;|&nbsp; 
-    <a href="#-2-analysis-of-algorithms"><b>📊 Algorithm Analysis</b></a> &nbsp;|&nbsp; 
-    <a href="#-3-individual-reflections"><b>🧠 Reflections</b></a> &nbsp;|&nbsp; 
-    <a href="#-4-sustainable-development-goals-sdg"><b>🌍 SDGs Addressed</b></a>
+    <a href="#project-overview"><b>📋 Overview</b></a> &nbsp;|&nbsp; 
+    <a href="#algorithm-analysis"><b>📊 Algorithm Analysis</b></a> &nbsp;|&nbsp; 
+    <a href="#reflections"><b>🧠 Reflections</b></a> &nbsp;|&nbsp; 
+    <a href="#sdgs"><b>🌍 SDGs Addressed</b></a> &nbsp;|&nbsp;
+    <a href="#about"><b>ℹ️ About</b></a>
   </p>
 
   <img src="https://img.shields.io/badge/Language-C++-00599C?style=flat-square" alt="C++" />
@@ -17,38 +18,58 @@
 
 ---
 
+<br>
+
+<a id="project-overview"></a>
+
+<div style="border:1px solid #ddd; padding:24px; border-radius:6px;">
+
 ## 1. Project Overview & Details
 
 ### **The Problem**
-Airlines operate on tight margins where efficiency is everything. Manual crew scheduling leads to:
- **Operational Conflicts:** Crew double-booked on overlapping flights.
- **Safety Risks:** Violations of mandatory rest periods (pilot fatigue).
- **Financial Loss:** Excessive "paid idle time" where crew wait at airports.
+Airline operations run on extremely tight schedules, where even minor inefficiencies can lead to cascading issues. Traditional manual crew scheduling often results in:
+- **Operational Conflicts:** Crew members being assigned to overlapping or incompatible flights.
+- **Safety Risks:** Violations of mandatory rest requirements, increasing the risk of pilot fatigue.
+- **Financial Losses:** Excessive paid idle time where crew remain inactive between assignments.
+
+These challenges highlight the need for an automated, algorithm-driven approach to crew rostering.
 
 ### **The Solution**
-We developed a C++ application that automates the rostering process. By treating time as a linear resource and crew as distinct entities, our system generates a conflict-free schedule in seconds.
+To address these issues, we developed a **C++-based Airline Crew Scheduling System** that automates the entire rostering process. By modeling **time as a linear resource** and **crew members as independent entities**, the system efficiently assigns flights while ensuring all operational and safety constraints are satisfied. The result is a conflict-free schedule generated within seconds.
 
 ### **Key Features**
-* **Conflict Detection:** Automatically flags if a pilot is busy.
-* **Rest Enforcement:** Adds mandatory "cool-down" periods (e.g., 15 mins) post-flight.
-* **Cost Optimization:** Uses greedy logic to chain flights together, minimizing idle gaps.
+* **Conflict Detection:** Automatically checks crew availability to prevent overlapping assignments.
+* **Rest Enforcement:** Incorporates mandatory post-flight cool-down periods (e.g., 15 minutes) to comply with safety regulations.
+* **Cost Optimization:** Applies greedy decision-making to chain compatible flights together, minimizing idle gaps and reducing operational costs.
 
----
+</div>
+
+<br>
+
+<a id="algorithm-analysis"></a>
+
+<div style="border:1px solid #ddd; padding:24px; border-radius:6px;">
 
 ## 2. Analysis of Algorithms
 
-We utilized a "Sort-Search-Assign" pipeline to solve the problem efficiently.
+The system follows a structured **Sort–Search–Assign** pipeline to ensure efficiency and scalability.
 
 | Component | Algorithm Used | Complexity | Why this choice? |
 | :--- | :--- | :--- | :--- |
-| **Timeline** | **Merge Sort** | $O(N \log N)$ | We need a **stable** sort to arrange flights chronologically. QuickSort is unstable and could mess up the order of simultaneous flights. |
-| **Crew Lookup** | **Binary Search** | $O(\log M)$ | Searching linearly through 5,000+ crew members is too slow ($O(M)$). Binary search finds the best fit instantly. |
-| **Assignment** | **Greedy Strategy** | $O(1)$ | A "Greedy" choice (picking the pilot who waits the least) provides a locally optimal solution that saves costs globally. |
+| **Timeline Construction** | **Merge Sort** | $O(N \log N)$ | A **stable sorting algorithm** is required to maintain the relative order of flights with identical start times. Unlike QuickSort, Merge Sort guarantees stability. |
+| **Crew Lookup** | **Binary Search** | $O(\log M)$ | With thousands of crew members, linear search becomes inefficient. Binary search allows rapid identification of the most suitable available crew member. |
+| **Assignment Logic** | **Greedy Strategy** | $O(1)$ | Selecting the crew member with the minimum waiting time provides a locally optimal choice that significantly reduces total idle time and overall cost. |
 
-> **Overall Complexity:** $O(N \log N)$  
-> The system is dominated by the sorting step, making it highly scalable for thousands of daily flights.
+> **Overall Time Complexity:** $O(N \log N)$  
+> Since sorting dominates the pipeline, the system remains highly scalable even for thousands of daily flight records.
 
----
+</div>
+
+<br>
+
+<a id="reflections"></a>
+
+<div style="border:1px solid #ddd; padding:24px; border-radius:6px;">
 
 ## 3. Individual Reflections
 
@@ -57,32 +78,55 @@ We utilized a "Sort-Search-Assign" pipeline to solve the problem efficiently.
 * **Course:** Design and Analysis of Algorithms (DAA)
 
 ### **Learning Outcomes**
-Building this project shifted my perspective from just "writing code" to "engineering solutions."
-1.  **Algorithmic selection matters:** I initially considered checking every pilot for every flight, but realized that would be $O(N \times M)$. Switching to Binary Search reduced this to $O(N \log M)$, which is a massive performance gain.
-2.  **Handling Constraints:** The hardest part was not the logic, but the *constraints* (like the mandatory rest period). I learned how to modify standard algorithms to fit real-world rules.
-3.  **Standard Template Library (STL):** I gained deep proficiency in C++ STL tools like `std::sort`, `std::lower_bound`, and `structs`.
+This project transformed my understanding of problem-solving from merely writing correct code to designing **efficient, real-world systems**.
+1. **Importance of Algorithm Selection:** A naive approach of checking every crew member for every flight would result in $O(N \times M)$ complexity. By integrating binary search, the system was optimized to $O(N \log M)$, yielding a substantial performance improvement.
+2. **Constraint Handling:** The most challenging aspect was incorporating real-world constraints such as mandatory rest periods. This experience taught me how classical algorithms must often be adapted rather than applied directly.
+3. **Practical Use of STL:** I gained strong hands-on experience with C++ STL components such as `std::sort`, `std::lower_bound`, and custom `struct` design for modeling real entities.
 
----
+</div>
+
+<br>
+
+<a id="sdgs"></a>
+
+<div style="border:1px solid #ddd; padding:24px; border-radius:6px;">
 
 ## 4. Sustainable Development Goals (SDG)
 
-This project aligns with the United Nations SDGs to promote a better future.
+This project contributes meaningfully to several **United Nations Sustainable Development Goals**.
 
-### ** SDG 3: Good Health and Well-being**
-* **Target:** Prevent workforce burnout.
-* **Implementation:** By algorithmically enforcing a strict **15-minute rest period** after every flight, we prevent pilot fatigue. This ensures the physical and mental well-being of the crew and the safety of passengers.
+### **SDG 3: Good Health and Well-being**
+* **Objective:** Reduce occupational fatigue and enhance workforce well-being.
+* **Implementation:** By strictly enforcing a **15-minute mandatory rest period** after each flight, the system minimizes pilot fatigue, ensuring safer operations and improved mental and physical health.
 
-### ** SDG 8: Decent Work and Economic Growth**
-* **Target:** Higher economic productivity through diversification and technological upgrading.
-* **Implementation:** The system optimizes the workforce, ensuring "Decent Work" (predictable schedules) and preventing financial waste (idle time), which contributes to the airline's economic stability.
+### **SDG 8: Decent Work and Economic Growth**
+* **Objective:** Improve productivity through efficient workforce utilization.
+* **Implementation:** The optimized scheduling ensures predictable work patterns for crew members while minimizing idle time, leading to both improved working conditions and reduced financial waste.
 
-### ** SDG 9: Industry, Innovation, and Infrastructure**
-* **Target:** Upgrade infrastructure and retrograde industries.
-* **Implementation:** We replaced error-prone manual rostering with a **modern computational infrastructure**. This is a direct upgrade to aviation logistics efficiency.
+### **SDG 9: Industry, Innovation, and Infrastructure**
+* **Objective:** Promote innovation and modernize operational infrastructure.
+* **Implementation:** The project replaces manual, error-prone scheduling with a **robust algorithmic infrastructure**, significantly enhancing efficiency in aviation logistics.
+
+</div>
+
+<br>
+
+<a id="about"></a>
+
+<div style="border:1px solid #ddd; padding:24px; border-radius:6px;">
+
+## About
+
+This project was developed as part of the **Design and Analysis of Algorithms (DAA)** coursework.  
+The system demonstrates the practical application of algorithmic concepts to real-world aviation logistics.
+
+> _Student details, institution name, project guide, and acknowledgements will be added here._
+
+</div>
 
 ---
 
 <div align="center">
   <p><i>Created for DAA Term Project 2026</i></p>
-  <a href="#-airline-crew-scheduling-system">⬆️ Back to Top</a>
+  <a href="#airline-crew-scheduling-system">⬆️ Back to Top</a>
 </div>
